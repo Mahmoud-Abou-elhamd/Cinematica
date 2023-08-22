@@ -1,6 +1,7 @@
 package com.mahmoud.android.cinematica.data.remote.service
 
 import com.mahmoud.android.cinematica.data.remote.response.BaseResponse
+import com.mahmoud.android.cinematica.data.remote.response.CreditsDto
 import com.mahmoud.android.cinematica.data.remote.response.MovieDetailsDto
 import com.mahmoud.android.cinematica.data.remote.response.MovieDto
 import com.mahmoud.android.cinematica.data.remote.response.genre.GenreResponse
@@ -23,4 +24,10 @@ interface MovieService {
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(@Path("movie_id") movieId: Int): Response<MovieDetailsDto>
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCast(@Path("movie_id") movieId: Int): Response<CreditsDto>
+
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimilarMovie(@Path("movie_id") movieId: Int): Response<BaseResponse<MovieDto>>
 }

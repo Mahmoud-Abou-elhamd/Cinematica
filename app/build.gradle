@@ -10,7 +10,7 @@ def localProperties = new Properties()
 localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
-    namespace 'com.mahmoud.android.cinematica'
+    //namespace 'com.mahmoud.android.cinematica'
     compileSdk 33
 
     defaultConfig {

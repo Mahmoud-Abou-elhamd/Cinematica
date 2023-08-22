@@ -3,6 +3,8 @@ package com.mahmoud.android.cinematica.utilities
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import com.google.android.material.chip.ChipGroup
 import com.mahmoud.android.cinematica.R
 import com.mahmoud.android.cinematica.databinding.ItemChipCategoryBinding
@@ -19,4 +21,8 @@ fun <T> ChipGroup.createChip(item: Genre, listener: T): View {
     chipBinding.item = item
     chipBinding.listener = listener as CategoryInteractionListener
     return chipBinding.root
+}
+
+inline fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, crossinline onEventUnhandledContent: (T) -> Unit) {
+    observe(owner) { it?.getContentIfNotHandled()?.let(onEventUnhandledContent) }
 }

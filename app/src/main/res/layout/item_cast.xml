@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.mahmoud.android.cinematica.domain.models.Actor" />
+        <variable
+            name="listener"
+            type="com.mahmoud.android.cinematica.ui.base.BaseInteractionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
+        android:backgroundTint="@color/background_color">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/castImage"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:scaleType="centerCrop"
+            android:background="@color/brand_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:posterImage="@{item.actorImage}"
+            app:shapeAppearanceOverlay="@style/Circle"
+            tools:srcCompat="@drawable/test_image"/>
+
+        <TextView
+            android:id="@+id/castName"
+            style="@style/Regular.Small.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:text="@{item.actorName}"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@id/castImage"
+            app:layout_constraintEnd_toEndOf="@id/castImage"
+            app:layout_constraintTop_toBottomOf="@id/castImage"
+            tools:text="Debora Caprioglio"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

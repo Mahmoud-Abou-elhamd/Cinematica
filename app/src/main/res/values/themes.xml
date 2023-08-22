@@ -39,6 +39,14 @@
         <item name="android:textColor">@color/shade_primary_color</item>
     </style>
 
+    <style name="SemiBold.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SemiBold.Medium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="SemiBold.Large">
         <item name="android:textSize">20sp</item>
     </style>
@@ -49,5 +57,26 @@
 
     <style name="Regular.Medium">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Regular.Medium.Secondary">
+        <item name="android:textColor">@color/shade_secondary_color</item>
+    </style>
+
+    <style name="Regular.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/shade_primary_color</item>
+    </style>
+
+    <style name="Regular.Small.Secondary">
+        <item name="android:textColor">@color/shade_secondary_color</item>
+    </style>
+
+    <style name="Regular.Small.ternary">
+        <item name="android:textColor">@color/shade_ternary_color</item>
+    </style>
+
+    <style name="Circle">
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

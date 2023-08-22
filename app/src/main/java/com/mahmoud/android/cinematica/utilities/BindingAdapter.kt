@@ -2,6 +2,7 @@ package com.mahmoud.android.cinematica.utilities
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import coil.load
 import com.google.android.material.chip.ChipGroup
 import com.mahmoud.android.cinematica.R
 import com.mahmoud.android.cinematica.domain.models.Genre
+import com.mahmoud.android.cinematica.domain.models.MovieDetails
 import com.mahmoud.android.cinematica.ui.UIState
 import com.mahmoud.android.cinematica.ui.base.BaseAdapter
 import com.mahmoud.android.cinematica.utilities.Constants.ALL
@@ -54,4 +56,21 @@ fun <T> showWhenLoading(view: View, state: UIState<T>?) {
 @BindingAdapter("app:showWhenFail")
 fun <T> showWhenFail(view: View, state: UIState<T>?) {
     view.isVisible = state is UIState.Error
+}
+
+@BindingAdapter("app:showWhenSuccess")
+fun <T> showWhenSuccess(view: View, state: UIState<T>?) {
+    view.isVisible = state is UIState.Success
+}
+
+@BindingAdapter("app:setReleaseDate")
+fun setReleaseDate(text: TextView, date: String?) {
+    text.text = date?.take(4)
+}
+
+@BindingAdapter("app:duration")
+fun setDuration(view: TextView, movieDetails: MovieDetails?) {
+    movieDetails?.let {
+        view.text = view.context.getString(R.string.duration, movieDetails.movieDuration)
+    }
 }
