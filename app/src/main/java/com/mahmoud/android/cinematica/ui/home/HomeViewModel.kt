@@ -34,13 +34,14 @@ class HomeViewModel @Inject constructor(
     }
 
     override fun getData(){
+        _movieList.postValue(UIState.Loading)
         getMovieGenres()
         getAllMovies()
     }
 
     private fun getMovieGenres(){
         _categories.postValue(UIState.Loading)
-        _movieList.postValue(UIState.Loading)
+        //_movieList.postValue(UIState.Loading)
         wrapWithState({
             val response = movieRepository.getMovieGenreList()
             _categories.postValue(UIState.Success(response))
