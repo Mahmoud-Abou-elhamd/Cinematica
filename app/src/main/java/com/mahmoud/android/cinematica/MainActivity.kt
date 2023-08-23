@@ -3,6 +3,7 @@ package com.mahmoud.android.cinematica
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.mahmoud.android.cinematica.databinding.ActivityMainBinding
@@ -16,8 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setTheme(R.style.Theme_Cinematica)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        installSplashScreen()
     }
 }

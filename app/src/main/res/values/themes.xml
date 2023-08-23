@@ -18,6 +18,12 @@
         <item name="contentInsetStart">0dp</item>
     </style>
 
+    <style name="Theme.Cinematica.SplashScreen" parent="Theme.SplashScreen.IconBackground">
+        <item name="postSplashScreenTheme">@style/Theme.Cinematica</item>
+        <item name="windowSplashScreenBackground">@color/background_color</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_adaptive_fore</item>
+    </style>
+
     <style name="CardCorners">
         <item name="cornerFamily">rounded</item>
     </style>
