@@ -18,6 +18,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setTitle(true, getString(R.string.app_name))
         setMovieAdapter()
         observeEvents()
     }
