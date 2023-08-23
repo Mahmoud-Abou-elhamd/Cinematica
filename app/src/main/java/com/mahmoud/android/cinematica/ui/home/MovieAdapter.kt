@@ -1,6 +1,5 @@
 package com.mahmoud.android.cinematica.ui.home
 
-import com.mahmoud.android.cinematica.R
 import com.mahmoud.android.cinematica.domain.models.Movie
 import com.mahmoud.android.cinematica.ui.base.BaseAdapter
 import com.mahmoud.android.cinematica.ui.base.BaseInteractionListener

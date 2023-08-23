@@ -3,7 +3,6 @@ package com.mahmoud.android.cinematica.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.mahmoud.android.cinematica.R
 import com.mahmoud.android.cinematica.databinding.FragmentHomeBinding
@@ -29,8 +28,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun observeEvents() {
-        viewModel.clickMovieEvent.observe(viewLifecycleOwner, EventObserve {
-            navigateToMovieDetails(it)
+        viewModel.clickMovieEvent.observe(viewLifecycleOwner, EventObserve { movieId ->
+            navigateToMovieDetails(movieId)
         })
     }
 

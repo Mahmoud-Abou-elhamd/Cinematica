@@ -3,6 +3,7 @@ package com.mahmoud.android.cinematica.utilities
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,23 +14,20 @@ import com.mahmoud.android.cinematica.domain.models.Genre
 import com.mahmoud.android.cinematica.domain.models.MovieDetails
 import com.mahmoud.android.cinematica.ui.UIState
 import com.mahmoud.android.cinematica.ui.base.BaseAdapter
-import com.mahmoud.android.cinematica.utilities.Constants.ALL
 import com.mahmoud.android.cinematica.utilities.Constants.FIRST_CATEGORY_ID
 
-@BindingAdapter("app:setGenres", "app:listener", "app:firstChipSelection")
+@BindingAdapter("app:setGenres", "app:listener", "app:selectedChip")
 fun <T> setGenresChips(
-    view: ChipGroup,
-    chipList: UIState<List<Genre>>?,
-    listener: T,
-    isFirstChipSelected: Boolean?
+    view: ChipGroup, chipList: UIState<List<Genre>>?, listener: T,
+    selectedChip: Int?
 ) {
-    val allMedia = Genre(FIRST_CATEGORY_ID, ALL)
     chipList?.toData()?.let {
-        view.addView(view.createChip(allMedia, listener))
-        it.forEach { genre -> view.addView(view.createChip(genre, listener)) }
+        if(view.isEmpty()){
+            it.forEach { genre -> view.addView(view.createChip(genre, listener)) }
+        }
     }
-
-    if (isFirstChipSelected == true) view.getChildAt(FIRST_CATEGORY_ID)?.id?.let { view.check(it) }
+    val index = chipList?.toData()?.indexOf(chipList.toData()?.find { it.genreID == selectedChip }) ?: FIRST_CATEGORY_ID
+    view.getChildAt(index)?.id?.let { view.check(it) }
 }
 
 @BindingAdapter(value = ["app:items"])

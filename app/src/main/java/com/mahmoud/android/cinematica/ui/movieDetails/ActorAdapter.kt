@@ -8,7 +8,3 @@ class ActorAdapter(items: List<Actor>, val layout: Int, val listener: BaseIntera
     BaseAdapter<Actor>(items, listener) {
     override val layoutID: Int = layout
 }
-
-//interface ActorsInteractionListener : BaseInteractionListener {
-//    fun onClickActor(actorID: Int)
-//}
