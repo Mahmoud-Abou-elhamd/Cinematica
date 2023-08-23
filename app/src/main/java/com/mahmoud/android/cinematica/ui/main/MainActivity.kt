@@ -2,9 +2,7 @@ package com.mahmoud.android.cinematica.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.findNavController
 import com.mahmoud.android.cinematica.R
 import com.mahmoud.android.cinematica.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
